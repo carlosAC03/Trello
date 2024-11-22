@@ -1,0 +1,109 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #2c2c2c;
+  color: #fff;
+  transition: background-color 0.3s;
+}
+
+h1{
+  color: #6495ED;
+}
+
+.trello-container {
+  width: 90%;
+  margin: 20px auto;
+  text-align: center;
+}
+
+.task-input {
+  margin: 20px 0;
+}
+
+#taskInput {
+  padding: 10px;
+  width: 300px;
+}
+
+#addTaskButton {
+  padding: 10px 20px;
+  background-color: #6495ED;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+#addTaskButton:hover {
+  background-color: #218838;
+}
+
+.themes {
+  margin: 20px 0;
+}
+
+.theme {
+  margin: 0 10px;
+  padding: 5px 15px;
+  border: none;
+}
+#claro{
+  background-color: #F0F8FF;
+}
+#oscuro{
+  background-color: #000;
+  color: #fff;
+}
+#pastel{
+  background-color: #ffd6e0;
+  color: #fffdee;
+}
+
+.columns {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+.column {
+  width: 30%;
+  background-color: #3c3c3c;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.column h3 {
+  margin-top: 0;
+}
+
+.tasks {
+  min-height: 150px;
+  padding: 5px;
+  border: 2px dashed #444;
+}
+
+.task {
+  background-color: #ffc107;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: black;
+}
+
+.task:hover {
+  cursor: move;
+}
+
+.task button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #000;
+}
+
+.task button:hover {
+  color: #ff0000;
+}

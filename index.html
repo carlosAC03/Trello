@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Trello Mejorado</title>
+  <link rel="stylesheet" href="css1.css">
+</head>
+<body>
+  <div class="trello-container">
+    <h1>Trello Mejorado</h1>
+    <div class="task-input">
+      <input type="text" id="taskInput" placeholder="Escribe una nueva tarea...">
+      <button id="addTaskButton">Agregar Tarea</button>
+    </div>
+    <div class="themes">
+      <button class="theme" id="claro" data-color="#f0f0f0">Claro</button>
+      <button class="theme" id="oscuro" data-color="#2c2c2c">Oscuro</button>
+      <button class="theme" id="pastel" data-color="#ffe4e1">Pastel</button>
+    </div>
+    <div class="columns">
+      <div class="column" id="pending">
+        <h3>Pendientes (<span id="pendingCount">0</span>)</h3>
+        <div class="tasks"></div>
+      </div>
+      <div class="column" id="inProgress">
+        <h3>En Progreso (<span id="inProgressCount">0</span>)</h3>
+        <div class="tasks"></div>
+      </div>
+      <div class="column" id="completed">
+        <h3>Completado (<span id="completedCount">0</span>)</h3>
+        <div class="tasks"></div>
+      </div>
+    </div>
+  </div>
+  <script src="js1.js"></script>
+</body>
+</html>
