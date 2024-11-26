@@ -35,33 +35,44 @@ document.addEventListener("DOMContentLoaded", () => {
     // Hacer la tarea arrastrable
     task.draggable = true;
     task.ondragstart = (e) => {
-      e.dataTransfer.setData("text/plain", task.outerHTML);
-      task.remove();
-      updateTaskCount();
+      e.dataTransfer.setData("text/plain", ""); // Necesario para permitir el arrastre
+      e.dataTransfer.setData("taskId", task.dataset.id);
+      e.dataTransfer.effectAllowed = "move";
+      e.target.classList.add("dragging");
+    };
+
+    task.ondragend = (e) => {
+      e.target.classList.remove("dragging");
     };
 
     return task;
   };
 
   Object.values(columns).forEach((column) => {
-    column.ondragover = (e) => e.preventDefault();
+    column.ondragover = (e) => {
+      e.preventDefault();
+      e.dataTransfer.dropEffect = "move";
+    };
+
     column.ondrop = (e) => {
       e.preventDefault();
-      const data = e.dataTransfer.getData("text/plain");
-      column.innerHTML += data;
-      updateTaskCount();
+      const draggingTask = document.querySelector(".dragging");
+      if (draggingTask) {
+        column.insertBefore(draggingTask, column.firstChild);
+        updateTaskCount();
+      }
     };
   });
 
   addTaskButton.onclick = () => {
     if (taskInput.value.trim()) {
-      columns.pending.appendChild(createTask(taskInput.value.trim()));
+      const newTask = createTask(taskInput.value.trim());
+      columns.pending.insertBefore(newTask, columns.pending.firstChild);
       taskInput.value = "";
       updateTaskCount();
     }
   };
 
-  // Cambiar el color de fondo
   document.querySelectorAll(".theme").forEach((btn) =>
     btn.addEventListener("click", () => {
       const color = btn.getAttribute("data-color");
